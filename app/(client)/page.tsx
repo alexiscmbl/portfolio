@@ -1,7 +1,21 @@
+'use client';
+
+import BlurText from '@/components/ui/BlurText';
+import { useTranslation } from 'react-i18next';
+
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
-    <div className="w-screen flex justify-center items-center h-screen">
-      <h1 className="text-4xl font-bold">Welcome to the Home Page</h1>
+    <div className="flex justify-center items-center h-full w-full">
+      <BlurText
+        key={t('welcome')}
+        text={t('welcome')}
+        delay={150}
+        animateBy="words"
+        direction="top"
+        className="text-2xl"
+      />
     </div>
   );
 }

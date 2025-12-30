@@ -1,0 +1,10 @@
+{
+  "navigation": {
+    "home": "Home",
+    "projects": "Projects",
+    "contact": "Contact",
+    "experience": "Experience",
+    "profile": "Profile"
+  },
+  "welcome": "Welcome to Alexis Cesmat-Belliard's portfolio"
+}
