@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Card } from '@/components/ui/card';
+import { Card } from '../../../components/ui/card';
 
-export default function Contact() {
+export default function ContactScreen() {
   return (
     <div className="w-screen h-screen flex justify-start items-start p-10">
       <Card

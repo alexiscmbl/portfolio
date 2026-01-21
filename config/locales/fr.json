@@ -1,0 +1,12 @@
+{
+  "navigation": {
+    "menu": "Menu",
+    "home": "Accueil",
+    "projects": "Projets",
+    "contact": "Contact",
+    "experience": "Expérience",
+    "profile": "Profil"
+  },
+  "welcome": "Bienvenue sur le portfolio d'Alexis Cesmat-Belliard",
+  "description": "Je suis un développeur passionné spécialisé dans la création d'applications web modernes et réactives."
+}

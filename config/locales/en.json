@@ -1,0 +1,12 @@
+{
+  "navigation": {
+    "menu": "Menu",
+    "home": "Home",
+    "projects": "Projects",
+    "contact": "Contact",
+    "experience": "Experience",
+    "profile": "Profile"
+  },
+  "welcome": "Welcome to Alexis Cesmat-Belliard's portfolio",
+  "description": "I am a passionate developer specializing in creating modern and responsive web applications."
+}
