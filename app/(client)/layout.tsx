@@ -2,9 +2,11 @@
 
 import '../../config/i18n';
 import React, { useEffect, useRef, useState } from 'react';
+
+import { ScrollRefContext } from '@/context/ScrollContext';
+
 import { Header } from '../../components/Header';
 import { Plasma } from '../../components/ui/Plasma';
-import { ScrollRefContext } from '@/context/ScrollContext';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -28,16 +30,14 @@ export default function Layout({ children }: LayoutProps) {
       >
         {/* Plasma en arrière-plan */}
         <div className="fixed inset-0 -z-10">
-          {process.env.NODE_ENV === 'production' && (
-            <Plasma
-              color="#C4C4C4"
-              speed={0.6}
-              direction="forward"
-              scale={1.1}
-              opacity={0.8}
-              mouseInteractive={false}
-            />
-          )}
+          <Plasma
+            color="#C4C4C4"
+            speed={0.6}
+            direction="forward"
+            scale={1.1}
+            opacity={0.8}
+            mouseInteractive={false}
+          />
         </div>
 
         <div className="relative z-10 flex flex-col min-h-full w-full">

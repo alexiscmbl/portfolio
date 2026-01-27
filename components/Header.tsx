@@ -1,7 +1,5 @@
 'use client';
 
-import * as React from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Briefcase,
   Home,
@@ -11,18 +9,22 @@ import {
   Menu,
   Globe,
 } from 'lucide-react';
-import { NavigationMenu, NavigationMenuLink } from './ui/navigation-menu';
-import { navigationMenuTriggerStyle } from './ui/navigation-menu';
 import Link from 'next/link';
+import * as React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { useScrollRef } from '@/context/ScrollContext';
+import { useHideHeaderOnScroll } from '@/hooks/useHideHeaderOnScroll';
+
 import { Button } from './ui/button';
 import GlassSurface from './ui/GlassSurface';
-import { useHideHeaderOnScroll } from '@/hooks/useHideHeaderOnScroll';
-import { useScrollRef } from '@/context/ScrollContext';
+import { NavigationMenu, NavigationMenuLink } from './ui/navigation-menu';
+import { navigationMenuTriggerStyle } from './ui/navigation-menu';
 
 export function Header() {
   const { t, i18n } = useTranslation();
@@ -83,7 +85,7 @@ export function Header() {
                   }
                 >
                   <div className="flex flex-col items-center gap-1 p-2">
-                    <div className="text-gray-200 dark:text-gray-100">
+                    <div className="text-gray-800/60 dark:text-gray-100">
                       {item.icon}
                     </div>
                     <span className="text-xs text-black group-hover:text-black font-medium">
@@ -120,7 +122,7 @@ export function Header() {
                       }
                     >
                       <div className="flex flex-col items-center gap-1 p-2">
-                        <div className="text-gray-200 dark:text-gray-100">
+                        <div className="text-gray-800/60 dark:text-gray-100">
                           {item.icon}
                         </div>
                         <span className="text-xs text-black group-hover:text-black font-medium">

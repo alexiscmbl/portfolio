@@ -1,9 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import GlassSurface from './ui/GlassSurface';
-import { useScrollDirection } from '@/hooks/useScrollDirection';
+
 import { useScrollRef } from '@/context/ScrollContext';
+import { useScrollDirection } from '@/hooks/useScrollDirection';
+
+import GlassSurface from './ui/GlassSurface';
 
 interface SectionWrapperProps {
   children: React.ReactNode;

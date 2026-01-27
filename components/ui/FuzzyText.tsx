@@ -24,7 +24,7 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
 }) => {
   const canvasRef = useRef<
     HTMLCanvasElement & { cleanupFuzzyText?: () => void }
-  >(null);
+      >(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;

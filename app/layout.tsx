@@ -1,5 +1,6 @@
-import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+
+import type { Metadata } from 'next';
 import './globals.css';
 
 const geistSans = Geist({
@@ -13,10 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Portfolio Alexis Cesmat-Belliard',
+  title: 'Portfolio - Alexis Cesmat-Belliard',
   description:
-    "Portfolio d'Alexis Cesmat-Belliard, étudiant développeur à L'IUT de Vannes.",
-  icons: '/portfolio_logo.png',
+    'Portfolio d\'Alexis Cesmat-Belliard, étudiant développeur à L\'IUT de Vannes.',
 };
 
 export default function RootLayout({

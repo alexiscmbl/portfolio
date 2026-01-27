@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
-import BlurText from '../../ui/BlurText';
 import { useTranslation } from 'react-i18next';
+
+import BlurText from '../../ui/BlurText';
 
 export default function HomeSection() {
   const { t } = useTranslation();
