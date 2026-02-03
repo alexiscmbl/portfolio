@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface ScrollDirectionProps {
   scrollRef: React.RefObject<HTMLDivElement>;
@@ -6,23 +6,24 @@ interface ScrollDirectionProps {
 
 export function useScrollDirection({ scrollRef }: ScrollDirectionProps) {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up');
-  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const lastScrollTopRef = useRef(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollElement = scrollRef?.current;
-      if (!scrollElement) return;
+    const scrollElement = scrollRef?.current;
+    if (!scrollElement) return;
 
+    const handleScroll = () => {
       const currentScrollTop = scrollElement.scrollTop;
-      if (currentScrollTop > lastScrollTop) {
+      if (currentScrollTop > lastScrollTopRef.current) {
         setScrollDirection('down');
-      } else if (currentScrollTop < lastScrollTop) {
+      } else if (currentScrollTop < lastScrollTopRef.current) {
         setScrollDirection('up');
       }
-      setLastScrollTop(currentScrollTop);
+      lastScrollTopRef.current = currentScrollTop;
     };
-    const scrollElement = scrollRef?.current || window;
-    scrollElement.addEventListener('scroll', handleScroll);
-  }, [lastScrollTop, scrollRef]);
+
+    scrollElement.addEventListener('scroll', handleScroll, { passive: true });
+    return () => scrollElement.removeEventListener('scroll', handleScroll);
+  }, [scrollRef]);
   return scrollDirection;
 }

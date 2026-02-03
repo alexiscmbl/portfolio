@@ -40,6 +40,8 @@ export interface GlassSurfaceProps {
     | 'luminosity'
     | 'plus-darker'
     | 'plus-lighter';
+  /** Sur true, désactive les filtres SVG lourds et utilise un style simple (mobile) */
+  reducedMotion?: boolean;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -80,6 +82,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   xChannel = 'R',
   yChannel = 'G',
   mixBlendMode = 'difference',
+  reducedMotion = false,
   className = '',
   style = {},
 }) => {
@@ -236,6 +239,21 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       '--glass-saturation': saturation,
     } as React.CSSProperties;
 
+    if (reducedMotion) {
+      return {
+        ...baseStyles,
+        background: isDarkMode
+          ? 'rgba(255, 255, 255, 0.08)'
+          : 'rgba(255, 255, 255, 0.4)',
+        border: isDarkMode
+          ? '1px solid rgba(255, 255, 255, 0.15)'
+          : '1px solid rgba(255, 255, 255, 0.35)',
+        boxShadow: isDarkMode
+          ? 'inset 0 1px 0 0 rgba(255, 255, 255, 0.1)'
+          : 'inset 0 1px 0 0 rgba(255, 255, 255, 0.5)',
+      };
+    }
+
     const svgSupported = supportsSVGFilters();
     const backdropFilterSupported = supportsBackdropFilter();
 
@@ -324,90 +342,92 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       className={`${glassSurfaceClasses} ${focusVisibleClasses} ${className}`}
       style={getContainerStyles()}
     >
-      <svg
-        className="w-full h-full pointer-events-none absolute inset-0 opacity-0 -z-10"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <filter
-            id={filterId}
-            colorInterpolationFilters="sRGB"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-          >
-            <feImage
-              ref={feImageRef}
-              x="0"
-              y="0"
+      {!reducedMotion && (
+        <svg
+          className="w-full h-full pointer-events-none absolute inset-0 opacity-0 -z-10"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <filter
+              id={filterId}
+              colorInterpolationFilters="sRGB"
+              x="0%"
+              y="0%"
               width="100%"
               height="100%"
-              preserveAspectRatio="none"
-              result="map"
-            />
+            >
+              <feImage
+                ref={feImageRef}
+                x="0"
+                y="0"
+                width="100%"
+                height="100%"
+                preserveAspectRatio="none"
+                result="map"
+              />
 
-            <feDisplacementMap
-              ref={redChannelRef}
-              in="SourceGraphic"
-              in2="map"
-              id="redchannel"
-              result="dispRed"
-            />
-            <feColorMatrix
-              in="dispRed"
-              type="matrix"
-              values="1 0 0 0 0
-                      0 0 0 0 0
-                      0 0 0 0 0
-                      0 0 0 1 0"
-              result="red"
-            />
+              <feDisplacementMap
+                ref={redChannelRef}
+                in="SourceGraphic"
+                in2="map"
+                id="redchannel"
+                result="dispRed"
+              />
+              <feColorMatrix
+                in="dispRed"
+                type="matrix"
+                values="1 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0"
+                result="red"
+              />
 
-            <feDisplacementMap
-              ref={greenChannelRef}
-              in="SourceGraphic"
-              in2="map"
-              id="greenchannel"
-              result="dispGreen"
-            />
-            <feColorMatrix
-              in="dispGreen"
-              type="matrix"
-              values="0 0 0 0 0
-                      0 1 0 0 0
-                      0 0 0 0 0
-                      0 0 0 1 0"
-              result="green"
-            />
+              <feDisplacementMap
+                ref={greenChannelRef}
+                in="SourceGraphic"
+                in2="map"
+                id="greenchannel"
+                result="dispGreen"
+              />
+              <feColorMatrix
+                in="dispGreen"
+                type="matrix"
+                values="0 0 0 0 0
+                        0 1 0 0 0
+                        0 0 0 0 0
+                        0 0 0 1 0"
+                result="green"
+              />
 
-            <feDisplacementMap
-              ref={blueChannelRef}
-              in="SourceGraphic"
-              in2="map"
-              id="bluechannel"
-              result="dispBlue"
-            />
-            <feColorMatrix
-              in="dispBlue"
-              type="matrix"
-              values="0 0 0 0 0
-                      0 0 0 0 0
-                      0 0 1 0 0
-                      0 0 0 1 0"
-              result="blue"
-            />
+              <feDisplacementMap
+                ref={blueChannelRef}
+                in="SourceGraphic"
+                in2="map"
+                id="bluechannel"
+                result="dispBlue"
+              />
+              <feColorMatrix
+                in="dispBlue"
+                type="matrix"
+                values="0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 1 0 0
+                        0 0 0 1 0"
+                result="blue"
+              />
 
-            <feBlend in="red" in2="green" mode="screen" result="rg" />
-            <feBlend in="rg" in2="blue" mode="screen" result="output" />
-            <feGaussianBlur
-              ref={gaussianBlurRef}
-              in="output"
-              stdDeviation="0.7"
-            />
-          </filter>
-        </defs>
-      </svg>
+              <feBlend in="red" in2="green" mode="screen" result="rg" />
+              <feBlend in="rg" in2="blue" mode="screen" result="output" />
+              <feGaussianBlur
+                ref={gaussianBlurRef}
+                in="output"
+                stdDeviation="0.7"
+              />
+            </filter>
+          </defs>
+        </svg>
+      )}
 
       <div className="w-full h-full flex items-center justify-center p-2 rounded-[inherit] relative z-10">
         {children}

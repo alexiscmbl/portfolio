@@ -1,0 +1,55 @@
+{
+  "projects": [
+    {
+      "id": "portfolio",
+      "slug": "portfolio",
+      "link": "",
+      "github": "https://github.com",
+      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      "fr": {
+        "title": "Portfolio (ce site)",
+        "shortDescription": "Site one-page avec Next.js, animations Framer Motion, i18n et design glassmorphism.",
+        "detail": "Ce portfolio présente mon parcours et mes réalisations. Il est construit avec Next.js 15 (App Router), TypeScript, Tailwind CSS et Framer Motion. Les textes sont gérés en i18n (français / anglais) et le contenu des projets est chargé depuis un fichier JSON pour faciliter les mises à jour."
+      },
+      "en": {
+        "title": "Portfolio (this site)",
+        "shortDescription": "One-page site with Next.js, Framer Motion animations, i18n and glassmorphism design.",
+        "detail": "This portfolio showcases my background and projects. It is built with Next.js 15 (App Router), TypeScript, Tailwind CSS and Framer Motion. Content is managed with i18n (French / English) and project data is loaded from a JSON file for easy updates."
+      }
+    },
+    {
+      "id": "webapp-example",
+      "slug": "webapp-example",
+      "link": "",
+      "github": "",
+      "tech": ["React", "Node.js", "PostgreSQL"],
+      "fr": {
+        "title": "Application web [exemple]",
+        "shortDescription": "Description courte du projet : objectifs, défis techniques et résultat.",
+        "detail": "Vous pouvez remplacer ce contenu par la description détaillée de votre projet : contexte, objectifs, stack technique, défis rencontrés et résultats obtenus."
+      },
+      "en": {
+        "title": "Web application [example]",
+        "shortDescription": "Short description: goals, technical challenges and outcome.",
+        "detail": "Replace this content with your project's detailed description: context, goals, tech stack, challenges and results."
+      }
+    },
+    {
+      "id": "projet-a-venir",
+      "slug": "projet-a-venir",
+      "link": "",
+      "github": "",
+      "tech": [],
+      "fr": {
+        "title": "Projet à venir",
+        "shortDescription": "Idée ou projet en cours — à compléter avec tes vrais projets.",
+        "detail": "Décrivez ici votre futur projet. Pour ajouter un nouveau projet, dupliquez un bloc dans data/projects.json et remplissez les champs fr/en."
+      },
+      "en": {
+        "title": "Coming soon",
+        "shortDescription": "Idea or work in progress — replace with your real projects.",
+        "detail": "Describe your upcoming project here. To add a new project, duplicate a block in data/projects.json and fill in the fr/en fields."
+      }
+    }
+  ]
+}

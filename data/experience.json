@@ -1,0 +1,60 @@
+{
+  "experience": [
+    {
+      "fr": {
+        "date": "2024 – Aujourd'hui",
+        "title": "Développeur / Stage",
+        "subtitle": "Entreprise ou organisation",
+        "points": [
+          "Développement d'applications web (front & back).",
+          "Participation à la conception et aux revues de code."
+        ]
+      },
+      "en": {
+        "date": "2024 – Present",
+        "title": "Developer / Internship",
+        "subtitle": "Company or organization",
+        "points": [
+          "Web application development (front & back).",
+          "Participation in design and code reviews."
+        ]
+      }
+    }
+  ],
+  "education": [
+    {
+      "fr": {
+        "date": "2022 – 2025",
+        "title": "DUT Informatique",
+        "subtitle": "IUT de Vannes",
+        "points": [
+          "Spécialisation développement web et logiciel.",
+          "Projets en équipe, bases de données, réseaux."
+        ]
+      },
+      "en": {
+        "date": "2022 – 2025",
+        "title": "IT Diploma (DUT)",
+        "subtitle": "IUT de Vannes",
+        "points": [
+          "Web and software development focus.",
+          "Team projects, databases, networking."
+        ]
+      }
+    },
+    {
+      "fr": {
+        "date": "2022",
+        "title": "Baccalauréat",
+        "subtitle": "Lycée",
+        "points": []
+      },
+      "en": {
+        "date": "2022",
+        "title": "High school diploma",
+        "subtitle": "High school",
+        "points": []
+      }
+    }
+  ]
+}
