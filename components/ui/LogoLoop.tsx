@@ -191,7 +191,6 @@ const useAnimationLoop = (
       }
       lastTimestampRef.current = null;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- trackRef stable
   }, [targetVelocity, seqWidth, seqHeight, isHovered, hoverSpeed, isVertical]);
 };
 
@@ -342,7 +341,6 @@ export const LogoLoop = React.memo<LogoLoopProps>(
             {nodeItem?.node}
           </span>
         ) : (
-          // eslint-disable-next-line @next/next/no-img-element -- dynamic external logos, sizes unknown
           <img
             className={cx(
               'h-[var(--logoloop-logoHeight)] w-auto block object-contain',
