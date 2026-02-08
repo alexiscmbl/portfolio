@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-const MOBILE_BREAKPOINT = 768;
+const MOBILE_BREAKPOINT = 1025;
 
 /**
- * Hook pour détecter si l'utilisateur est sur mobile (largeur < 768px).
- * Par défaut true pour éviter de charger du contenu lourd (ex: WebGL) avant le premier paint sur mobile.
+ * Hook pour détecter si l'utilisateur est sur mobile ou tablette (largeur < 1024px).
+ * Par défaut true pour éviter de charger du contenu lourd (ex: WebGL) avant le premier paint.
  */
 export const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState<boolean>(true);

@@ -25,6 +25,9 @@ export default function EducationSection() {
                 date={content.date}
                 title={content.title}
                 subtitle={content.subtitle}
+                subtitleHref={entry.subtitleHref}
+                mention={content.mention}
+                description={content.description}
                 icon={<GraduationCap className="size-4" />}
               >
                 {content.points.length > 0 && (

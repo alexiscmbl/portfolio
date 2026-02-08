@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import * as React from 'react';
 
@@ -21,23 +21,6 @@ function useAccordion() {
   if (!ctx) throw new Error('AccordionItem must be used inside Accordion');
   return ctx;
 }
-
-const containerVariants = {
-  closed: { height: 0, opacity: 0 },
-  open: {
-    height: 'auto',
-    opacity: 1,
-    transition: {
-      height: { duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] as const },
-      opacity: { delay: 0.05, duration: 0.25 },
-    },
-  },
-  exit: {
-    height: 0,
-    opacity: 0,
-    transition: { height: { duration: 0.3 }, opacity: { duration: 0.15 } },
-  },
-};
 
 export interface AccordionProps {
   type?: 'single' | 'multiple';
@@ -133,26 +116,22 @@ export function AccordionItem({
           <ChevronDown className="size-5" />
         </motion.span>
       </button>
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            variants={containerVariants}
-            initial="closed"
-            animate="open"
-            exit="exit"
-            className="w-full overflow-hidden"
+      {/* Transition en grid-template-rows : stable même avec peu de contenu */}
+      <div
+        className="grid w-full min-w-0 transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+        style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
+      >
+        <div className="min-h-0 w-full overflow-hidden">
+          <div
+            className={cn(
+              'w-full min-w-0 border-t border-border/60 px-4 pb-3 pt-1 sm:px-5 sm:pb-4 sm:pt-2 break-words',
+              contentClassName
+            )}
           >
-            <div
-              className={cn(
-                'w-full border-t border-border/60 px-4 pb-3 pt-1 sm:px-5 sm:pb-4 sm:pt-2',
-                contentClassName
-              )}
-            >
-              {children}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {children}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

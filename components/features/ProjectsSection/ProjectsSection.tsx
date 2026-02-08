@@ -35,7 +35,7 @@ export default function ProjectsSection() {
               transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.3) }}
               className="flex w-full min-w-0 flex-col rounded-xl border border-border/60 bg-card/90 shadow-sm backdrop-blur-sm transition-colors hover:border-border hover:bg-card"
             >
-              <div className="flex flex-1 flex-col p-4 sm:p-5">
+              <div className="flex flex-1 justify-between flex-col p-4 sm:p-5">
                 <h3 className="font-semibold text-foreground">{content.title}</h3>
                 <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">
                   {content.shortDescription}
@@ -63,7 +63,7 @@ export default function ProjectsSection() {
                       {t('projects.visit')}
                     </a>
                   )}
-                  {p.github && (
+                  {p.github ? (
                     <a
                       href={p.github}
                       target="_blank"
@@ -73,6 +73,11 @@ export default function ProjectsSection() {
                       <Github className="size-3.5" />
                       GitHub
                     </a>
+                  ) : (
+                    <span className="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs font-medium text-muted-foreground/80">
+                      <Github className="size-3.5" />
+                      {t('projects.notAvailable')}
+                    </span>
                   )}
                 </div>
               </div>

@@ -1,6 +1,5 @@
 {
   "navigation": {
-    "menu": "Menu",
     "home": "Accueil",
     "projects": "Projets",
     "contact": "Contact",
@@ -8,77 +7,51 @@
     "education": "Formation",
     "profile": "Profil"
   },
+  "scrollHint": "Découvrir",
   "welcome": "Bienvenue sur le portfolio d'Alexis Cesmat-Belliard",
   "description": "Je suis un développeur passionné spécialisé dans la création d'applications web modernes et réactives.",
   "projects": {
     "title": "Projets",
-    "subtitle": "Quelques réalisations et side-projects.",
-    "techLabel": "Stack",
+    "subtitle": "Quelques réalisations et projets personnels.",
     "visit": "Voir le projet",
-    "detail": "Voir le détail",
-    "items": {
-      "0": {
-        "title": "Portfolio (ce site)",
-        "description": "Site one-page avec Next.js, animations Framer Motion, i18n et design glassmorphism.",
-        "tech": "Next.js, TypeScript, Tailwind, Framer Motion"
-      },
-      "1": {
-        "title": "Application web [exemple]",
-        "description": "Description courte du projet : objectifs, défis techniques et résultat.",
-        "tech": "React, Node, PostgreSQL"
-      },
-      "2": {
-        "title": "Projet à venir",
-        "description": "Idée ou projet en cours — à compléter avec tes vrais projets.",
-        "tech": "À définir"
-      }
-    }
+    "notAvailable": "Projet non disponible",
+    "detail": "Voir le détail"
   },
   "education": {
     "title": "Formation",
     "subtitle": "Parcours scolaire et diplômes."
   },
+  "timeline": {
+    "showDescription": "Voir la description",
+    "hide": "Masquer"
+  },
   "experience": {
     "title": "Expérience",
-    "subtitle": "Parcours professionnel et stages.",
-    "items": {
-      "0": {
-        "date": "2024 – Aujourd'hui",
-        "title": "Développeur / Stage",
-        "subtitle": "Entreprise ou organisation",
-        "point1": "Développement d'applications web (front & back).",
-        "point2": "Participation à la conception et aux revues de code."
-      },
-      "1": {
-        "date": "2022 – 2025",
-        "title": "DUT Informatique",
-        "subtitle": "IUT de Vannes",
-        "point1": "Spécialisation développement web et logiciel.",
-        "point2": "Projets en équipe, bases de données, réseaux."
-      },
-      "2": {
-        "date": "2022",
-        "title": "Baccalauréat",
-        "subtitle": "Lycée"
-      }
-    }
+    "subtitle": "Parcours professionnel et stages."
   },
   "profile": {
     "title": "Profil",
     "subtitle": "Qui je suis et ce que j'aime faire.",
     "aboutTitle": "À propos",
-    "aboutText": "Étudiant en développement à l'IUT de Vannes, je me passionne pour le web moderne (React, Next.js, TypeScript) et la qualité du code. J'aime construire des interfaces claires et des expériences utilisateur soignées.",
+    "aboutText": "Je suis actuellement étudiant en BUT Informatique à l'IUT de Vannes et apprenti développeur chez SCR Informatiques, je me passionne pour le développement. J'aime construire des interfaces claires et des expériences utilisateur soignées.",
     "skillsTitle": "Compétences",
-    "skillsText": "Front-end : React, Next.js, TypeScript, Tailwind CSS. Back-end : Node.js, bases de données (SQL). Outils : Git, Docker, bonnes pratiques (tests, accessibilité).",
+    "skillsFrontEndLabel": "Front-end",
+    "skillsFrontEnd": ["HTML", "CSS / Tailwind", "JavaScript", "TypeScript", "React", "Next.js"],
+    "skillsBackEndLabel": "Back-end / Langages & données",
+    "skillsBackEnd": ["Java", "Python", "NestJS", "Node.js", "PostgreSQL / MySQL", "MongoDB / Neo4J", "Machine Learning / Deep Learning (IA)"],
+    "skillsToolsLabel": "Outils",
+    "skillsTools": ["Docker", "Git", "Excel", "Langage UML", "Bash"],
     "goalsTitle": "Objectifs",
-    "goalsText": "Obtenir mon diplôme, continuer à monter en compétence sur l'écosystème JavaScript/TypeScript et intégrer une équipe où je pourrai contribuer sur des projets concrets."
+    "goalsText": "Obtenir mon diplôme, continuer à monter en compétences techniques et professionnelles. J'aimerais poursuivre des études en école d'ingénieur ou en master afin de confirmer mes compétences et de me spécialiser dans un domaine précis."
   },
   "contact": {
     "title": "Contact",
     "subtitle": "Une idée de projet ou une question ? Écrivez-moi.",
     "email": "Email",
     "linkedin": "LinkedIn",
-    "location": "Vannes, France",
+    "github": "GitHub",
+    "cv": "Mon CV",
+    "location": "Derval, France",
     "cta": "Disponible pour des stages et opportunités à partir de 2025."
   }
 }

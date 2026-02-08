@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +13,7 @@ import { getProjectBySlug, type Locale } from '@/lib/data';
 export default function ProjectDetailPage() {
   const params = useParams();
   const slug = typeof params.slug === 'string' ? params.slug : '';
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const locale = (i18n.language?.startsWith('fr') ? 'fr' : 'en') as Locale;
 
   const project = getProjectBySlug(slug);
@@ -48,7 +49,7 @@ export default function ProjectDetailPage() {
             <ArrowLeft className="size-4" />
             {locale === 'fr' ? 'Retour aux projets' : 'Back to projects'}
           </Link>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {project.link && (
               <a
                 href={project.link}
@@ -57,10 +58,10 @@ export default function ProjectDetailPage() {
                 className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-sm font-medium text-primary-foreground hover:opacity-90"
               >
                 <ExternalLink className="size-4" />
-                {locale === 'fr' ? 'Voir le projet' : 'View project'}
+                {t('projects.visit')}
               </a>
             )}
-            {project.github && (
+            {project.github ? (
               <a
                 href={project.github}
                 target="_blank"
@@ -70,6 +71,11 @@ export default function ProjectDetailPage() {
                 <Github className="size-4" />
                 GitHub
               </a>
+            ) : (
+              <span className="inline-flex items-center gap-1.5 rounded-lg border border-border/60 bg-muted/50 px-3 py-2 text-sm font-medium text-muted-foreground">
+                <Github className="size-4" />
+                {t('projects.notAvailable')}
+              </span>
             )}
           </div>
         </div>
@@ -78,14 +84,45 @@ export default function ProjectDetailPage() {
           {content.title}
         </h1>
 
-        {project.tech.length > 0 && (
-          <p className="mt-2 text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            {project.tech.join(' · ')}
-          </p>
+        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
+          {content.date && <span>{content.date}</span>}
+          {content.role && (
+            <>
+              {content.date && <span aria-hidden>·</span>}
+              <span>{content.role}</span>
+            </>
+          )}
+          {project.tech.length > 0 && (
+            <>
+              {(content.date || content.role) && <span aria-hidden>·</span>}
+              <span className="font-medium uppercase tracking-wider">
+                {project.tech.join(' · ')}
+              </span>
+            </>
+          )}
+        </div>
+
+        {project.image && (
+          <div className="relative mt-6 aspect-video w-full overflow-hidden rounded-xl border border-border/60 bg-muted/30">
+            <Image
+              src={project.image}
+              alt=""
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 1024px) 100vw, 896px"
+            />
+          </div>
         )}
 
         <div className="prose prose-sm mt-6 max-w-none text-muted-foreground prose-p:leading-relaxed sm:prose-base">
           <p className="whitespace-pre-line">{content.detail}</p>
+          {content.points && content.points.length > 0 && (
+            <ul className="mt-4 list-disc space-y-1 pl-5">
+              {content.points.map((point, i) => (
+                <li key={i}>{point}</li>
+              ))}
+            </ul>
+          )}
         </div>
       </motion.div>
     </div>

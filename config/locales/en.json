@@ -1,6 +1,5 @@
 {
   "navigation": {
-    "menu": "Menu",
     "home": "Home",
     "projects": "Projects",
     "contact": "Contact",
@@ -8,77 +7,51 @@
     "education": "Education",
     "profile": "Profile"
   },
+  "scrollHint": "Scroll",
   "welcome": "Welcome to Alexis Cesmat-Belliard's portfolio",
   "description": "I am a passionate developer specializing in modern and responsive web applications.",
   "projects": {
     "title": "Projects",
     "subtitle": "A selection of work and side projects.",
-    "techLabel": "Stack",
     "visit": "View project",
-    "detail": "View details",
-    "items": {
-      "0": {
-        "title": "Portfolio (this site)",
-        "description": "One-page site with Next.js, Framer Motion animations, i18n and glassmorphism design.",
-        "tech": "Next.js, TypeScript, Tailwind, Framer Motion"
-      },
-      "1": {
-        "title": "Web application [example]",
-        "description": "Short description: goals, technical challenges and outcome.",
-        "tech": "React, Node, PostgreSQL"
-      },
-      "2": {
-        "title": "Coming soon",
-        "description": "Idea or work in progress — replace with your real projects.",
-        "tech": "TBD"
-      }
-    }
+    "notAvailable": "Project not available",
+    "detail": "View details"
   },
   "education": {
-    "title": "Formation",
+    "title": "Education",
     "subtitle": "Academic background and degrees."
+  },
+  "timeline": {
+    "showDescription": "View description",
+    "hide": "Hide"
   },
   "experience": {
     "title": "Experience",
-    "subtitle": "Professional experience and internships.",
-    "items": {
-      "0": {
-        "date": "2024 – Present",
-        "title": "Developer / Internship",
-        "subtitle": "Company or organization",
-        "point1": "Web application development (front & back).",
-        "point2": "Participation in design and code reviews."
-      },
-      "1": {
-        "date": "2022 – 2025",
-        "title": "IT Diploma (DUT)",
-        "subtitle": "IUT de Vannes",
-        "point1": "Web and software development focus.",
-        "point2": "Team projects, databases, networking."
-      },
-      "2": {
-        "date": "2022",
-        "title": "High school diploma",
-        "subtitle": "High school"
-      }
-    }
+    "subtitle": "Professional experience and internships."
   },
   "profile": {
     "title": "Profile",
     "subtitle": "Who I am and what I enjoy doing.",
     "aboutTitle": "About",
-    "aboutText": "Computer science student at IUT de Vannes, I am passionate about modern web (React, Next.js, TypeScript) and code quality. I like building clear interfaces and polished user experiences.",
+    "aboutText": "I am currently a Computer Science student (BUT) at IUT de Vannes and a developer apprentice at SCR Informatiques. I am passionate about development and like building clear interfaces and polished user experiences.",
     "skillsTitle": "Skills",
-    "skillsText": "Front-end: React, Next.js, TypeScript, Tailwind CSS. Back-end: Node.js, databases (SQL). Tools: Git, Docker, best practices (testing, accessibility).",
+    "skillsFrontEndLabel": "Front-end",
+    "skillsFrontEnd": ["HTML", "CSS / Tailwind", "JavaScript", "TypeScript", "React", "Next.js"],
+    "skillsBackEndLabel": "Back-end & data",
+    "skillsBackEnd": ["Java", "Python", "NestJS", "Node.js", "PostgreSQL / MySQL", "MongoDB / Neo4J", "Machine / Deep Learning (AI)"],
+    "skillsToolsLabel": "Tools",
+    "skillsTools": ["Docker", "Git", "Excel", "UML", "Bash"],
     "goalsTitle": "Goals",
-    "goalsText": "Graduate, keep growing in the JavaScript/TypeScript ecosystem and join a team where I can contribute to real-world projects."
+    "goalsText": "Graduate, keep building technical and professional skills. I would like to pursue engineering school or a master's degree to strengthen my expertise and specialize in a specific field."
   },
   "contact": {
     "title": "Contact",
     "subtitle": "Have a project idea or a question? Get in touch.",
     "email": "Email",
     "linkedin": "LinkedIn",
-    "location": "Vannes, France",
+    "github": "GitHub",
+    "cv": "My CV",
+    "location": "Derval, France",
     "cta": "Available for internships and opportunities from 2025."
   }
 }

@@ -5,16 +5,30 @@
       "slug": "portfolio",
       "link": "",
       "github": "https://github.com",
-      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Motion"],
       "fr": {
         "title": "Portfolio (ce site)",
-        "shortDescription": "Site one-page avec Next.js, animations Framer Motion, i18n et design glassmorphism.",
-        "detail": "Ce portfolio présente mon parcours et mes réalisations. Il est construit avec Next.js 15 (App Router), TypeScript, Tailwind CSS et Framer Motion. Les textes sont gérés en i18n (français / anglais) et le contenu des projets est chargé depuis un fichier JSON pour faciliter les mises à jour."
+        "shortDescription": "Site one-page avec Next.js, animations Motion, i18n et design glassmorphism.",
+        "detail": "Ce portfolio présente mon parcours et mes réalisations. Il est construit avec Next.js, TypeScript, Tailwind CSS et Framer Motion pour les animations. Les textes sont gérés en i18n (français / anglais) et le contenu des projets est chargé depuis un fichier JSON pour faciliter les mises à jour.",
+        "date": "2026",
+        "role": "Projet personnel",
+        "points": [
+          "Next.js, TypeScript, Tailwind CSS, Motion",
+          "i18n français / anglais",
+          "Contenu éditable via data/projects.json"
+        ]
       },
       "en": {
         "title": "Portfolio (this site)",
-        "shortDescription": "One-page site with Next.js, Framer Motion animations, i18n and glassmorphism design.",
-        "detail": "This portfolio showcases my background and projects. It is built with Next.js 15 (App Router), TypeScript, Tailwind CSS and Framer Motion. Content is managed with i18n (French / English) and project data is loaded from a JSON file for easy updates."
+        "shortDescription": "One-page site with Next.js, Motion animations, i18n and glassmorphism design.",
+        "detail": "This portfolio showcases my background and projects. It is built with Next.js 15 (App Router), TypeScript, Tailwind CSS and Framer Motion. Content is managed with i18n (French / English) and project data is loaded from a JSON file for easy updates.",
+        "date": "2025",
+        "role": "Personal project",
+        "points": [
+          "Next.js 15 (App Router), TypeScript, Tailwind CSS, Framer Motion",
+          "i18n French / English",
+          "Content editable via data/projects.json and data/experience.json"
+        ]
       }
     },
     {

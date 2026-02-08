@@ -9,13 +9,45 @@ export interface ProjectItem {
   link: string;
   github: string;
   tech: string[];
-  fr: { title: string; shortDescription: string; detail: string };
-  en: { title: string; shortDescription: string; detail: string };
+  /** URL d'une image / capture d'écran pour la page détail (optionnel) */
+  image?: string;
+  fr: {
+    title: string;
+    shortDescription: string;
+    detail: string;
+    date?: string;
+    role?: string;
+    points?: string[];
+  };
+  en: {
+    title: string;
+    shortDescription: string;
+    detail: string;
+    date?: string;
+    role?: string;
+    points?: string[];
+  };
 }
 
 export interface ExperienceEntry {
-  fr: { date: string; title: string; subtitle: string; points: string[] };
-  en: { date: string; title: string; subtitle: string; points: string[] };
+  /** URL optionnelle pour le sous-titre (site entreprise / école) */
+  subtitleHref?: string;
+  fr: {
+    date: string;
+    title: string;
+    subtitle: string;
+    mention?: string;
+    description?: string;
+    points: string[];
+  };
+  en: {
+    date: string;
+    title: string;
+    subtitle: string;
+    mention?: string;
+    description?: string;
+    points: string[];
+  };
 }
 
 export function getProjects(): ProjectItem[] {

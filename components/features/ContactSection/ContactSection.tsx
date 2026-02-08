@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, Linkedin, MapPin } from 'lucide-react';
+import { FileDown, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/ui/button';
@@ -9,7 +9,9 @@ import { SectionTitle } from '@/components/ui/section-title';
 
 const links = [
   { icon: Mail, href: 'mailto:contact@example.com', labelKey: 'contact.email' },
-  { icon: Linkedin, href: 'https://linkedin.com', labelKey: 'contact.linkedin' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/alexis-cesmat-belliard-aa776329a/', labelKey: 'contact.linkedin' },
+  { icon: Github, href: 'https://github.com/alexiscmbl', labelKey: 'contact.github' },
+  { icon: FileDown, href: '/cv.pdf', labelKey: 'contact.cv' },
   { icon: MapPin, href: '#', labelKey: 'contact.location' },
 ];
 
@@ -19,7 +21,10 @@ export default function ContactSection() {
   return (
     <section className="space-y-8 md:space-y-10">
       <SectionTitle title={t('contact.title')} subtitle={t('contact.subtitle')} />
-      <div className="flex flex-col items-center gap-6 sm:flex-row sm:flex-wrap sm:justify-center">
+      <div
+        className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:justify-center sm:gap-6
+          [&>*:last-child:nth-child(2n+1)]:col-span-2 [&>*:last-child:nth-child(2n+1)]:flex [&>*:last-child:nth-child(2n+1)]:justify-center [&>*:last-child:nth-child(2n+1)>*]:w-auto"
+      >
         {links.map((item, i) => {
           const Icon = item.icon;
           return (

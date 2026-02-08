@@ -18,7 +18,7 @@ export default function ProfileSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="w-full"
+        className="w-full min-w-0"
       >
         <Accordion type="single" defaultValue={0}>
           <AccordionItem
@@ -33,7 +33,28 @@ export default function ProfileSection() {
             trigger={t('profile.skillsTitle')}
             contentClassName="text-muted-foreground"
           >
-            <p className="text-sm leading-relaxed">{t('profile.skillsText')}</p>
+            <ul className="space-y-4 text-sm leading-relaxed">
+              {(
+                [
+                  { labelKey: 'profile.skillsFrontEndLabel', itemsKey: 'profile.skillsFrontEnd' },
+                  { labelKey: 'profile.skillsBackEndLabel', itemsKey: 'profile.skillsBackEnd' },
+                  { labelKey: 'profile.skillsToolsLabel', itemsKey: 'profile.skillsTools' },
+                ] as const
+              ).map(({ labelKey, itemsKey }) => {
+                const items = t(itemsKey, { returnObjects: true }) as string[];
+                if (!Array.isArray(items) || items.length === 0) return null;
+                return (
+                  <li key={labelKey}>
+                    <span className="font-medium text-foreground">{t(labelKey)}</span>
+                    <ul className="mt-1 list-disc pl-5 space-y-0.5 text-muted-foreground">
+                      {items.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </li>
+                );
+              })}
+            </ul>
           </AccordionItem>
           <AccordionItem
             index={2}

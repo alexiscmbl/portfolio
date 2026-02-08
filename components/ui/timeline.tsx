@@ -1,22 +1,23 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 import * as React from 'react';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
+import { useIsMobile } from '@/hooks/useIsMobile';
 import { cn } from '@/lib/utils';
 
 export interface TimelineItemProps {
-  /** Date ou période (ex. "2023 – Aujourd'hui") */
   date: string;
-  /** Titre du poste ou de l’événement */
   title: string;
-  /** Sous-titre (entreprise, lieu) */
   subtitle?: string;
-  /** Description ou liste de points */
+  subtitleHref?: string;
+  mention?: string;
+  description?: string;
   children?: React.ReactNode;
-  /** Icône optionnelle (composant React) */
   icon?: React.ReactNode;
-  /** Dernier item : ne pas afficher la ligne en dessous */
   isLast?: boolean;
   _index?: number;
 }
@@ -34,11 +35,19 @@ export function TimelineItem({
   date,
   title,
   subtitle,
+  subtitleHref,
+  mention,
+  description,
   children,
   icon,
   isLast = false,
   _index = 0,
 }: TimelineItemProps) {
+  const { t } = useTranslation();
+  const isMobile = useIsMobile();
+  const [isOpen, setIsOpen] = useState(false);
+  const hasDescription = Boolean(description?.trim());
+
   return (
     <motion.li
       className="relative flex gap-4 pb-8 last:pb-0 sm:gap-6"
@@ -72,8 +81,57 @@ export function TimelineItem({
       <div className="min-w-0 flex-1 pt-0.5">
         <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground sm:text-sm">{date}</p>
         <h3 className="mt-1 font-semibold text-foreground sm:text-lg">{title}</h3>
-        {subtitle && <p className="mt-0.5 text-sm text-muted-foreground">{subtitle}</p>}
-        {children && <div className="mt-2 text-sm text-muted-foreground [&>ul]:list-disc [&>ul]:pl-5">{children}</div>}
+        {subtitle &&
+          (subtitleHref ? (
+            <a
+              href={subtitleHref}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={`mt-0.5 inline-block text-sm font-normal text-foreground/90 not-italic underline-offset-2 transition-colors hover:text-primary hover:underline ${isMobile ? 'underline' : ''}`}
+            >
+              {subtitle}
+            </a>
+          ) : (
+            <p className="mt-0.5 text-sm font-normal text-foreground/90 not-italic">{subtitle}</p>
+          ))}
+        {mention && (
+          <p className="mt-0.5 text-sm font-medium text-primary/90 italic">{mention}</p>
+        )}
+        {children && (
+          <div className="mt-2 text-sm text-muted-foreground italic [&>ul]:list-disc [&>ul]:space-y-0.5 [&>ul]:pl-5">
+            {children}
+          </div>
+        )}
+        {hasDescription && (
+          <div className="mt-3 overflow-hidden rounded-md border-2 border-primary/50 bg-background/50">
+            <button
+              type="button"
+              onClick={() => setIsOpen((o) => !o)}
+              className="flex w-full cursor-pointer items-center gap-2 py-2.5 pl-3 pr-3 text-left text-sm font-medium text-primary transition-colors hover:bg-primary/5"
+              aria-expanded={isOpen}
+            >
+              <ChevronDown
+                className={cn('size-4 shrink-0 transition-transform duration-200', isOpen && 'rotate-180')}
+              />
+              <span>{isOpen ? t('timeline.hide') : t('timeline.showDescription')}</span>
+            </button>
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25, ease: 'easeInOut' }}
+                  className="overflow-hidden"
+                >
+                  <p className="whitespace-pre-line border-t border-border/50 px-3 py-2.5 text-sm leading-relaxed text-muted-foreground">
+                    {description}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        )}
       </div>
     </motion.li>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-//import { u } from 'motion/react-client';
+import { useTheme } from 'next-themes';
 import React, { useEffect, useRef, useState, useId, useCallback } from 'react';
 
 export interface GlassSurfaceProps {
@@ -47,20 +47,19 @@ export interface GlassSurfaceProps {
 }
 
 const useDarkMode = () => {
-  const [isDark, setIsDark] = useState(false);
+  const { resolvedTheme } = useTheme();
+  const [systemDark, setSystemDark] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    setIsDark(mediaQuery.matches);
-
-    const handler = (e: MediaQueryListEvent) => setIsDark(e.matches);
-    mediaQuery.addEventListener('change', handler);
-    return () => mediaQuery.removeEventListener('change', handler);
+    const m = window.matchMedia('(prefers-color-scheme: dark)');
+    setSystemDark(m.matches);
+    const h = () => setSystemDark(m.matches);
+    m.addEventListener('change', h);
+    return () => m.removeEventListener('change', h);
   }, []);
 
-  return isDark;
+  return resolvedTheme === 'dark' || (resolvedTheme === 'system' && systemDark);
 };
 
 const GlassSurface: React.FC<GlassSurfaceProps> = ({
@@ -240,17 +239,24 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     } as React.CSSProperties;
 
     if (reducedMotion) {
+      const backdropSupported = supportsBackdropFilter();
+      if (isDarkMode) {
+        return {
+          ...baseStyles,
+          background: backdropSupported ? 'rgba(255, 255, 255, 0.08)' : 'rgba(30, 30, 35, 0.85)',
+          backdropFilter: backdropSupported ? 'blur(12px) saturate(1.2)' : undefined,
+          WebkitBackdropFilter: backdropSupported ? 'blur(12px) saturate(1.2)' : undefined,
+          border: '1px solid rgba(255, 255, 255, 0.12)',
+          boxShadow: '0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.06)',
+        };
+      }
       return {
         ...baseStyles,
-        background: isDarkMode
-          ? 'rgba(255, 255, 255, 0.08)'
-          : 'rgba(255, 255, 255, 0.4)',
-        border: isDarkMode
-          ? '1px solid rgba(255, 255, 255, 0.15)'
-          : '1px solid rgba(255, 255, 255, 0.35)',
-        boxShadow: isDarkMode
-          ? 'inset 0 1px 0 0 rgba(255, 255, 255, 0.1)'
-          : 'inset 0 1px 0 0 rgba(255, 255, 255, 0.5)',
+        background: backdropSupported ? 'rgba(255, 255, 255, 0.5)' : 'rgba(255, 255, 255, 0.92)',
+        backdropFilter: backdropSupported ? 'blur(12px) saturate(1.1)' : undefined,
+        WebkitBackdropFilter: backdropSupported ? 'blur(12px) saturate(1.1)' : undefined,
+        border: '1px solid rgba(255, 255, 255, 0.6)',
+        boxShadow: '0 4px 24px rgba(0, 0, 0, 0.06), inset 0 1px 0 0 rgba(255, 255, 255, 0.8)',
       };
     }
 

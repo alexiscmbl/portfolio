@@ -5,6 +5,8 @@ import { useTheme } from 'next-themes';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { ScrollRefContext } from '@/context/ScrollContext';
+import { useIsMobile } from '@/hooks/useIsMobile';
+import { cn } from '@/lib/utils';
 
 import { Header } from '../../components/Header';
 import { Meteors } from '../../components/ui/meteors';
@@ -17,6 +19,7 @@ export default function Layout({ children }: LayoutProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme } = useTheme();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     setMounted(true);
@@ -32,12 +35,17 @@ export default function Layout({ children }: LayoutProps) {
         ref={scrollRef}
         className="relative h-screen w-full flex flex-col overflow-y-auto scroll-smooth"
       >
-        {/* Fond animé (suit le thème clair/sombre) */}
-        <div className="fixed inset-0 -z-20">
+        {/* Fond animé : moins de météores + décalé à gauche sur mobile, même angle */}
+        <div
+          className={cn(
+            'fixed inset-0 -z-20',
+            isMobile && 'w-[120%] -translate-x-[10%]',
+          )}
+        >
           <Meteors
-            className="w-full h-full"
+            className="h-full w-full"
             variant={meteorsVariant}
-            count={75}
+            count={isMobile ? 28 : 75}
             angle={255}
           />
         </div>

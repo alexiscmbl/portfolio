@@ -49,13 +49,12 @@ const BlurText: React.FC<BlurTextProps> = ({
   onAnimationComplete,
   stepDuration = 0.35,
 }) => {
-  const isMobile = useIsMobile();
   const elements = animateBy === 'words' ? text.split(' ') : text.split('');
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    if (isMobile || !ref.current) return;
+    if (!ref.current) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && ref.current) {
@@ -67,7 +66,7 @@ const BlurText: React.FC<BlurTextProps> = ({
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [threshold, rootMargin, isMobile]);
+  }, [threshold, rootMargin]);
 
   const defaultFrom = useMemo(
     () =>
@@ -97,22 +96,6 @@ const BlurText: React.FC<BlurTextProps> = ({
   const times = Array.from({ length: stepCount }, (_, i) =>
     stepCount === 1 ? 0 : i / (stepCount - 1),
   );
-
-  // Sur mobile : pas d'animation blur (coûteuse), affichage direct
-  if (isMobile) {
-    return (
-      <p
-        className={`blur-text ${className} flex flex-wrap justify-center text-center max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl`}
-      >
-        {elements.map((segment, index) => (
-          <span key={index} style={{ display: 'inline-block' }}>
-            {segment === ' ' ? '\u00A0' : segment}
-            {animateBy === 'words' && index < elements.length - 1 && '\u00A0'}
-          </span>
-        ))}
-      </p>
-    );
-  }
 
   return (
     <p
