@@ -15,7 +15,14 @@
     "subtitle": "Quelques réalisations et projets personnels.",
     "visit": "Voir le projet",
     "notAvailable": "Projet non disponible",
-    "detail": "Voir le détail"
+    "detail": "Voir le détail",
+    "backToProjects": "Retour aux projets",
+    "projectNotFound": "Projet introuvable",
+    "roleLabel": "Rôle",
+    "dateLabel": "Date",
+    "techStack": "Stack technique",
+    "descriptionTitle": "Description",
+    "keyPointsTitle": "Points clés"
   },
   "education": {
     "title": "Formation",
@@ -52,6 +59,13 @@
     "github": "GitHub",
     "cv": "Mon CV",
     "location": "Derval, France",
-    "cta": "Disponible pour des stages et opportunités à partir de 2025."
+    "cta": "Disponible pour des stages et opportunités à partir de 2025.",
+    "formTitle": "Envoyer un message",
+    "formName": "Nom",
+    "formEmail": "Votre email",
+    "formMessage": "Message",
+    "formSend": "Envoyer",
+    "formSuccess": "Message envoyé, merci.",
+    "formError": "Erreur lors de l'envoi, réessayez."
   }
 }

@@ -1,13 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
+import { ArrowLeft, Calendar, ExternalLink, Github, User } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { getProjectBySlug, type Locale } from '@/lib/data';
 
 export default function ProjectDetailPage() {
@@ -21,12 +22,12 @@ export default function ProjectDetailPage() {
 
   if (!project || !content) {
     return (
-      <div className="mx-auto flex min-h-[60vh] max-w-3xl flex-col items-center justify-center gap-4 px-4 py-12">
-        <h1 className="text-2xl font-semibold">Projet introuvable</h1>
+      <div className="mx-auto flex min-h-[60vh] max-w-3xl flex-col items-center justify-center gap-6 px-4 py-12">
+        <h1 className="text-2xl font-semibold text-foreground">{t('projects.projectNotFound')}</h1>
         <Link href="/#projects">
           <Button variant="outline" className="gap-2">
             <ArrowLeft className="size-4" />
-            Retour aux projets
+            {t('projects.backToProjects')}
           </Button>
         </Link>
       </div>
@@ -35,19 +36,20 @@ export default function ProjectDetailPage() {
 
   return (
     <div className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
+      <motion.article
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35 }}
-        className="rounded-2xl border border-border/60 bg-card/95 p-6 shadow-sm backdrop-blur-sm sm:p-8"
+        transition={{ duration: 0.4 }}
+        className="space-y-6 sm:space-y-8"
       >
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-3 sm:mb-8">
+        {/* Header: back + actions */}
+        <div className="flex flex-wrap items-center justify-between gap-3">
           <Link
             href="/#projects"
             className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             <ArrowLeft className="size-4" />
-            {locale === 'fr' ? 'Retour aux projets' : 'Back to projects'}
+            {t('projects.backToProjects')}
           </Link>
           <div className="flex flex-wrap gap-2">
             {project.link && (
@@ -55,7 +57,7 @@ export default function ProjectDetailPage() {
                 href={project.link}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-sm font-medium text-primary-foreground hover:opacity-90"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 <ExternalLink className="size-4" />
                 {t('projects.visit')}
@@ -66,7 +68,7 @@ export default function ProjectDetailPage() {
                 href={project.github}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-2 text-sm font-medium hover:bg-accent/50"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
               >
                 <Github className="size-4" />
                 GitHub
@@ -80,30 +82,47 @@ export default function ProjectDetailPage() {
           </div>
         </div>
 
-        <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-          {content.title}
-        </h1>
-
-        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
-          {content.date && <span>{content.date}</span>}
-          {content.role && (
-            <>
-              {content.date && <span aria-hidden>·</span>}
-              <span>{content.role}</span>
-            </>
-          )}
-          {project.tech.length > 0 && (
-            <>
-              {(content.date || content.role) && <span aria-hidden>·</span>}
-              <span className="font-medium uppercase tracking-wider">
-                {project.tech.join(' · ')}
+        {/* Title + meta */}
+        <div className="rounded-2xl border border-border/60 bg-card/95 p-6 shadow-sm backdrop-blur-sm sm:p-8">
+          <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            {content.title}
+          </h1>
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            {content.date && (
+              <span className="inline-flex items-center gap-1.5">
+                <Calendar className="size-4 shrink-0" />
+                {content.date}
               </span>
-            </>
+            )}
+            {content.role && (
+              <span className="inline-flex items-center gap-1.5">
+                <User className="size-4 shrink-0" />
+                {content.role}
+              </span>
+            )}
+          </div>
+
+          {/* Tech stack badges */}
+          {project.tech.length > 0 && (
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground/90">
+                {t('projects.techStack')} —
+              </span>
+              {project.tech.map((tech) => (
+                <span
+                  key={tech}
+                  className="cursor-pointer rounded-lg border border-border/80 bg-muted/50 px-3 py-1 text-xs font-medium text-foreground"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           )}
         </div>
 
+        {/* Image */}
         {project.image && (
-          <div className="relative mt-6 aspect-video w-full overflow-hidden rounded-xl border border-border/60 bg-muted/30">
+          <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-border/60 bg-muted/30">
             <Image
               src={project.image}
               alt=""
@@ -114,17 +133,36 @@ export default function ProjectDetailPage() {
           </div>
         )}
 
-        <div className="prose prose-sm mt-6 max-w-none text-muted-foreground prose-p:leading-relaxed sm:prose-base">
-          <p className="whitespace-pre-line">{content.detail}</p>
-          {content.points && content.points.length > 0 && (
-            <ul className="mt-4 list-disc space-y-1 pl-5">
-              {content.points.map((point, i) => (
-                <li key={i}>{point}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </motion.div>
+        {/* Description */}
+        <Card className="overflow-hidden rounded-2xl border-border/60 bg-card/95 shadow-sm backdrop-blur-sm">
+          <CardHeader className="pb-2">
+            <h2 className="text-lg font-semibold text-foreground">{t('projects.descriptionTitle')}</h2>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="whitespace-pre-line text-muted-foreground leading-relaxed">
+              {content.detail}
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Key points */}
+        {content.points && content.points.length > 0 && (
+          <Card className="overflow-hidden rounded-2xl border-border/60 bg-card/95 shadow-sm backdrop-blur-sm">
+            <CardHeader className="pb-2">
+              <h2 className="text-lg font-semibold text-foreground">{t('projects.keyPointsTitle')}</h2>
+            </CardHeader>
+            <CardContent>
+              <ul className="list-disc space-y-2 pl-6 marker:text-primary">
+                {content.points.map((point, i) => (
+                  <li key={i} className="text-muted-foreground leading-relaxed pl-1">
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        )}
+      </motion.article>
     </div>
   );
 }

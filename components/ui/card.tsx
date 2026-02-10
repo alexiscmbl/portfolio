@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-export function Card({ className, children, ...props }: React.ComponentProps<'div'>) {
+function Card({ className, children, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="card"
@@ -16,3 +16,13 @@ export function Card({ className, children, ...props }: React.ComponentProps<'di
     </div>
   );
 }
+
+function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {
+  return <div data-slot="card-header" className={cn('flex flex-col space-y-1.5 px-6', className)} {...props} />;
+}
+
+function CardContent({ className, ...props }: React.ComponentProps<'div'>) {
+  return <div data-slot="card-content" className={cn('px-6 pb-6', className)} {...props} />;
+}
+
+export { Card, CardContent, CardHeader };

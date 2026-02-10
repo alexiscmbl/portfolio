@@ -15,7 +15,14 @@
     "subtitle": "A selection of work and side projects.",
     "visit": "View project",
     "notAvailable": "Project not available",
-    "detail": "View details"
+    "detail": "View details",
+    "backToProjects": "Back to projects",
+    "projectNotFound": "Project not found",
+    "roleLabel": "Role",
+    "dateLabel": "Date",
+    "techStack": "Tech stack",
+    "descriptionTitle": "Description",
+    "keyPointsTitle": "Key points"
   },
   "education": {
     "title": "Education",
@@ -52,6 +59,13 @@
     "github": "GitHub",
     "cv": "My CV",
     "location": "Derval, France",
-    "cta": "Available for internships and opportunities from 2025."
+    "cta": "Available for internships and opportunities from 2025.",
+    "formTitle": "Send a message",
+    "formName": "Name",
+    "formEmail": "Your email",
+    "formMessage": "Message",
+    "formSend": "Send",
+    "formSuccess": "Message sent, thank you.",
+    "formError": "Error sending message, please try again."
   }
 }

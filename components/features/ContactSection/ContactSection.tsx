@@ -1,18 +1,21 @@
 'use client';
 
-import { FileDown, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import { FileDown, Github, Linkedin, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/ui/button';
 import { RevealBlock } from '@/components/ui/reveal-block';
 import { SectionTitle } from '@/components/ui/section-title';
 
+import { ContactDialog } from './ContactDialog';
+
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+
 const links = [
-  { icon: Mail, href: 'mailto:contact@example.com', labelKey: 'contact.email' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/alexis-cesmat-belliard-aa776329a/', labelKey: 'contact.linkedin' },
-  { icon: Github, href: 'https://github.com/alexiscmbl', labelKey: 'contact.github' },
-  { icon: FileDown, href: '/cv.pdf', labelKey: 'contact.cv' },
-  { icon: MapPin, href: '#', labelKey: 'contact.location' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/alexis-cesmat-belliard-aa776329a/', labelKey: 'contact.linkedin' as const },
+  { icon: Github, href: 'https://github.com/alexiscmbl', labelKey: 'contact.github' as const },
+  { icon: FileDown, href: '/cv.pdf', labelKey: 'contact.cv' as const },
+  { icon: MapPin, href: '#', labelKey: 'contact.location' as const },
 ];
 
 export default function ContactSection() {
@@ -43,7 +46,16 @@ export default function ContactSection() {
             </RevealBlock>
           );
         })}
+        {FORMSPREE_ID && (
+          <RevealBlock direction="up" delay={links.length * 0.1}>
+            <ContactDialog
+              formspreeId={FORMSPREE_ID}
+              triggerClassName="w-full gap-3 rounded-xl border-border/80 bg-card/80 sm:w-auto"
+            />
+          </RevealBlock>
+        )}
       </div>
+
       <RevealBlock direction="up" delay={0.2}>
         <p className="text-center text-sm text-muted-foreground">
           {t('contact.cta')}
