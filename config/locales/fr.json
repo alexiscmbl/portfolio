@@ -22,7 +22,9 @@
     "dateLabel": "Date",
     "techStack": "Stack technique",
     "descriptionTitle": "Description",
-    "keyPointsTitle": "Points clés"
+    "keyPointsTitle": "Points clés",
+    "statusCompleted": "Terminé",
+    "statusInDevelopment": "En cours"
   },
   "education": {
     "title": "Formation",

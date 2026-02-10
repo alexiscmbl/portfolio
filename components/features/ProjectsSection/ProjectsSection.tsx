@@ -36,8 +36,21 @@ export default function ProjectsSection() {
               className="flex w-full min-w-0 flex-col rounded-xl border border-border/60 bg-card/90 shadow-sm backdrop-blur-sm transition-colors hover:border-border hover:bg-card"
             >
               <div className="flex flex-1 justify-between flex-col p-4 sm:p-5">
-                <h3 className="font-semibold text-foreground">{content.title}</h3>
-                <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">
+                <div>
+                  <h3 className="font-semibold text-foreground">{content.title}</h3>
+                  <div className="mt-1.5">
+                    {content.status === 'Développement en cours' ? (
+                      <span className="inline-flex rounded-md border border-amber-500/60 bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-600 dark:text-amber-400">
+                        {t('projects.statusInDevelopment')}
+                      </span>
+                    ) : (
+                      <span className="inline-flex rounded-md border border-green-500/50 bg-green-500/10 px-2 py-0.5 text-xs font-medium text-green-600 dark:text-green-400">
+                        {t('projects.statusCompleted')}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <p className="mt-3 line-clamp-2 text-sm text-muted-foreground">
                   {content.shortDescription}
                 </p>
                 {p.tech.length > 0 && (

@@ -84,9 +84,22 @@ export default function ProjectDetailPage() {
 
         {/* Title + meta */}
         <div className="rounded-2xl border border-border/60 bg-card/95 p-6 shadow-sm backdrop-blur-sm sm:p-8">
-          <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            {content.title}
-          </h1>
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+              {content.title}
+            </h1>
+            <div className="mt-2">
+              {content.status === 'Développement en cours' ? (
+                <span className="inline-flex rounded-md border border-amber-500/60 bg-amber-500/10 px-2.5 py-1 text-xs font-medium text-amber-600 dark:text-amber-400">
+                  {t('projects.statusInDevelopment')}
+                </span>
+              ) : (
+                <span className="inline-flex rounded-md border border-green-500/50 bg-green-500/10 px-2.5 py-1 text-xs font-medium text-green-600 dark:text-green-400">
+                  {t('projects.statusCompleted')}
+                </span>
+              )}
+            </div>
+          </div>
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
             {content.date && (
               <span className="inline-flex items-center gap-1.5">

@@ -13,6 +13,7 @@ export interface ProjectItem {
   image?: string;
   fr: {
     title: string;
+    status: string;
     shortDescription: string;
     detail: string;
     date?: string;
@@ -21,6 +22,7 @@ export interface ProjectItem {
   };
   en: {
     title: string;
+    status: string;
     shortDescription: string;
     detail: string;
     date?: string;
