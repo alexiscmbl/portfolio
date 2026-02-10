@@ -32,37 +32,72 @@
       }
     },
     {
-      "id": "webapp-example",
-      "slug": "webapp-example",
+      "id": "wythoff-ai",
+      "slug": "wythoff-ai",
       "link": "",
-      "github": "",
-      "tech": ["React", "Node.js", "PostgreSQL"],
+      "github": "https://github.com/alexiscmbl/wythoff-ai",
+      "tech": ["Python"],
       "fr": {
-        "title": "Application web [exemple]",
-        "shortDescription": "Description courte du projet : objectifs, défis techniques et résultat.",
-        "detail": "Vous pouvez remplacer ce contenu par la description détaillée de votre projet : contexte, objectifs, stack technique, défis rencontrés et résultats obtenus."
+        "title": "Wythoff AI",
+        "shortDescription": "Jeu de Wythoff (Humain vs IA) avec apprentissage par renforcement. Interface terminal en français. Variante à deux joueurs.",
+        "detail": "Implémentation du jeu de Wythoff en Python : mode principal Humain vs IA (l'IA mémorise les parties et adapte sa stratégie, avec modes Normal et Impossible après entraînement contre elle-même) et mode deux joueurs. Règles : plateau en damier, déplacement d'un jeton (gauche, bas ou diagonale), le joueur qui ne peut plus jouer perd. Aucune dépendance externe.",
+        "date": "—",
+        "role": "Projet personnel",
+        "points": ["Apprentissage par renforcement (récompenses / pénalités)", "Interface en ligne de commande, entièrement en français", "Variante 2 joueurs dans .2players/"]
       },
       "en": {
-        "title": "Web application [example]",
-        "shortDescription": "Short description: goals, technical challenges and outcome.",
-        "detail": "Replace this content with your project's detailed description: context, goals, tech stack, challenges and results."
+        "title": "Wythoff AI",
+        "shortDescription": "Wythoff's game (Human vs AI) with reinforcement learning. Terminal interface in French. Two-player variant.",
+        "detail": "Python implementation of Wythoff's game: main mode Human vs AI (AI memorizes games and adapts its strategy, with Normal and Impossible modes after self-play training) and two-player mode. Rules: checkerboard, move one token (left, down or diagonal), the player who cannot move loses. No external dependencies.",
+        "date": "—",
+        "role": "Personal project",
+        "points": ["Reinforcement learning (rewards / penalties)", "Command-line interface, fully in French", "Two-player variant in .2players/"]
       }
     },
     {
-      "id": "projet-a-venir",
-      "slug": "projet-a-venir",
+      "id": "defiut",
+      "slug": "defiut",
       "link": "",
-      "github": "",
-      "tech": [],
+      "github": "https://github.com/alexiscmbl/defiut",
+      "tech": ["React", "Node.js", "Express", "PostgreSQL", "Docker", "TypeScript"],
       "fr": {
-        "title": "Projet à venir",
-        "shortDescription": "Idée ou projet en cours — à compléter avec tes vrais projets.",
-        "detail": "Décrivez ici votre futur projet. Pour ajouter un nouveau projet, dupliquez un bloc dans data/projects.json et remplissez les champs fr/en."
+        "title": "DefIUT",
+        "shortDescription": "Plateforme web de défis : catalogue, classement, scores et exécution de code (Python, JS). Projet de groupe à l'IUT.",
+        "detail": "DefIUT est une plateforme de défis réalisée en groupe à l'IUT : catalogue de défis, classement et scores, exécution de code côté serveur (Python, JavaScript, etc.). Backend Node.js/Express avec PostgreSQL, frontend React. Déploiement avec Docker (backend, front, base de données). Documentation et guides dans le dépôt.",
+        "date": "—",
+        "role": "Projet de groupe (IUT)",
+        "points": ["Backend Node.js/Express, frontend React, PostgreSQL", "Exécution de code (Python, JS) pour les défis", "Docker : backend, front, BDD"]
       },
       "en": {
-        "title": "Coming soon",
-        "shortDescription": "Idea or work in progress — replace with your real projects.",
-        "detail": "Describe your upcoming project here. To add a new project, duplicate a block in data/projects.json and fill in the fr/en fields."
+        "title": "DefIUT",
+        "shortDescription": "Web platform for challenges: catalog, rankings, scores and code execution (Python, JS). Group project at IUT.",
+        "detail": "DefIUT is a challenge platform built as a group project at IUT: challenge catalog, rankings and scores, server-side code execution (Python, JavaScript, etc.). Node.js/Express backend with PostgreSQL, React frontend. Deployment with Docker (backend, frontend, database). Documentation and guides in the repo.",
+        "date": "—",
+        "role": "Group project (IUT)",
+        "points": ["Node.js/Express backend, React frontend, PostgreSQL", "Code execution (Python, JS) for challenges", "Docker: backend, frontend, database"]
+      }
+    },
+    {
+      "id": "communes-bretonnes",
+      "slug": "communes-bretonnes",
+      "link": "",
+      "github": "https://github.com/alexiscmbl/communes-bretonnes",
+      "tech": ["Java", "JavaFX", "MySQL", "Docker"],
+      "fr": {
+        "title": "Communes bretonnes",
+        "shortDescription": "Application desktop Java (JavaFX) pour visualiser et gérer les données des communes bretonnes. MySQL, Docker, MVC.",
+        "detail": "Application desktop de visualisation et gestion des données des communes bretonnes : connexion, inscription, visualisation de graphes (gares, aéroports, voisinage) et manipulation des données annuelles. Réalisée en Java (JavaFX) et MySQL, architecture MVC. Lancement uniquement via Docker (pas de Java local requis) ; sur Windows, affichage via VcXsrv (X11). Données importées depuis des CSV au premier démarrage.",
+        "date": "2024",
+        "role": "Projet personnel",
+        "points": ["Architecture MVC (model, view, controller)", "JavaFX, MySQL, Docker (BDD + app)", "Import des données CSV, graphes (gares, aéroports)"]
+      },
+      "en": {
+        "title": "Communes bretonnes",
+        "shortDescription": "Desktop Java (JavaFX) app to view and manage data on Breton communes. MySQL, Docker, MVC.",
+        "detail": "Desktop application for viewing and managing data on Breton communes: login, registration, graph visualization (stations, airports, neighbourhood) and annual data handling. Built with Java (JavaFX) and MySQL, MVC architecture. Run only via Docker (no local Java required); on Windows, display via VcXsrv (X11). Data imported from CSV on first run.",
+        "date": "2024",
+        "role": "Personal project",
+        "points": ["MVC architecture (model, view, controller)", "JavaFX, MySQL, Docker (database + app)", "CSV data import, graphs (stations, airports)"]
       }
     }
   ]
