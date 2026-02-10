@@ -89,7 +89,7 @@ export default function ProjectDetailPage() {
               {content.title}
             </h1>
             <div className="mt-2">
-              {content.status === 'Développement en cours' ? (
+              {content.status === 'Développement en cours' || content.status === 'In development' ? (
                 <span className="inline-flex rounded-md border border-amber-500/60 bg-amber-500/10 px-2.5 py-1 text-xs font-medium text-amber-600 dark:text-amber-400">
                   {t('projects.statusInDevelopment')}
                 </span>

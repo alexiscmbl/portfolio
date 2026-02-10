@@ -39,7 +39,7 @@ export default function ProjectsSection() {
                 <div>
                   <h3 className="font-semibold text-foreground">{content.title}</h3>
                   <div className="mt-1.5">
-                    {content.status === 'Développement en cours' ? (
+                    {content.status === 'Développement en cours' || content.status === 'In development' ? (
                       <span className="inline-flex rounded-md border border-amber-500/60 bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-600 dark:text-amber-400">
                         {t('projects.statusInDevelopment')}
                       </span>
