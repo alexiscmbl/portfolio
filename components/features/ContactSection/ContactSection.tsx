@@ -14,7 +14,7 @@ const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID;
 const links = [
   { icon: Linkedin, href: 'https://www.linkedin.com/in/alexis-cesmat-belliard-aa776329a/', labelKey: 'contact.linkedin' as const },
   { icon: Github, href: 'https://github.com/alexiscmbl', labelKey: 'contact.github' as const },
-  { icon: FileDown, href: '/cv.pdf', labelKey: 'contact.cv' as const },
+  { icon: FileDown, href: '/CV.pdf', labelKey: 'contact.cv' as const },
   { icon: MapPin, href: '#', labelKey: 'contact.location' as const },
 ];
 
