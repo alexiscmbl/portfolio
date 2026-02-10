@@ -22,12 +22,12 @@
         "title": "Portfolio (this site)",
         "shortDescription": "One-page site with Next.js, Motion animations, i18n and glassmorphism design.",
         "detail": "This portfolio showcases my background and projects. It is built with Next.js 15 (App Router), TypeScript, Tailwind CSS and Framer Motion. Content is managed with i18n (French / English) and project data is loaded from a JSON file for easy updates.",
-        "date": "2025",
+        "date": "2026",
         "role": "Personal project",
         "points": [
-          "Next.js 15 (App Router), TypeScript, Tailwind CSS, Framer Motion",
+          "Next.js, TypeScript, Tailwind CSS, Motion",
           "i18n French / English",
-          "Content editable via data/projects.json and data/experience.json"
+          "Content editable via data/projects.json"
         ]
       }
     },
@@ -41,7 +41,7 @@
         "title": "Wythoff AI",
         "shortDescription": "Jeu de Wythoff (Humain vs IA) avec apprentissage par renforcement. Interface terminal en français. Variante à deux joueurs.",
         "detail": "Implémentation du jeu de Wythoff en Python : mode principal Humain vs IA (l'IA mémorise les parties et adapte sa stratégie, avec modes Normal et Impossible après entraînement contre elle-même) et mode deux joueurs. Règles : plateau en damier, déplacement d'un jeton (gauche, bas ou diagonale), le joueur qui ne peut plus jouer perd. Aucune dépendance externe.",
-        "date": "—",
+        "date": "2024",
         "role": "Projet personnel",
         "points": ["Apprentissage par renforcement (récompenses / pénalités)", "Interface en ligne de commande, entièrement en français", "Variante 2 joueurs dans .2players/"]
       },
@@ -49,7 +49,7 @@
         "title": "Wythoff AI",
         "shortDescription": "Wythoff's game (Human vs AI) with reinforcement learning. Terminal interface in French. Two-player variant.",
         "detail": "Python implementation of Wythoff's game: main mode Human vs AI (AI memorizes games and adapts its strategy, with Normal and Impossible modes after self-play training) and two-player mode. Rules: checkerboard, move one token (left, down or diagonal), the player who cannot move loses. No external dependencies.",
-        "date": "—",
+        "date": "2024",
         "role": "Personal project",
         "points": ["Reinforcement learning (rewards / penalties)", "Command-line interface, fully in French", "Two-player variant in .2players/"]
       }
@@ -64,7 +64,7 @@
         "title": "DefIUT",
         "shortDescription": "Plateforme web de défis : catalogue, classement, scores et exécution de code (Python, JS). Projet de groupe à l'IUT.",
         "detail": "DefIUT est une plateforme de défis réalisée en groupe à l'IUT : catalogue de défis, classement et scores, exécution de code côté serveur (Python, JavaScript, etc.). Backend Node.js/Express avec PostgreSQL, frontend React. Déploiement avec Docker (backend, front, base de données). Documentation et guides dans le dépôt.",
-        "date": "—",
+        "date": "2025",
         "role": "Projet de groupe (IUT)",
         "points": ["Backend Node.js/Express, frontend React, PostgreSQL", "Exécution de code (Python, JS) pour les défis", "Docker : backend, front, BDD"]
       },
@@ -72,7 +72,7 @@
         "title": "DefIUT",
         "shortDescription": "Web platform for challenges: catalog, rankings, scores and code execution (Python, JS). Group project at IUT.",
         "detail": "DefIUT is a challenge platform built as a group project at IUT: challenge catalog, rankings and scores, server-side code execution (Python, JavaScript, etc.). Node.js/Express backend with PostgreSQL, React frontend. Deployment with Docker (backend, frontend, database). Documentation and guides in the repo.",
-        "date": "—",
+        "date": "2025",
         "role": "Group project (IUT)",
         "points": ["Node.js/Express backend, React frontend, PostgreSQL", "Code execution (Python, JS) for challenges", "Docker: backend, frontend, database"]
       }
