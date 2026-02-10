@@ -1,0 +1,104 @@
+{
+  "experience": [
+    {
+      "subtitleHref": "https://www.scrinfo.net/",
+      "fr": {
+        "date": "Août 2024 – Aujourd'hui",
+        "title": "Alternant Développeur",
+        "subtitle": "SCR Informatiques - Châteaubriant",
+        "description": "Entreprise fondée en 1990, SCR Informatiques est une entreprise de développement de logiciels et de services informatiques.",
+        "points": [
+          "Développement d'applications web (front & back).",
+          "Développement d'applications mobiles (React Native).",
+          "Projet de migration de base de données (HFSQL -> MySQL)."
+        ]
+      },
+      "en": {
+        "date": "August 2024 – Present",
+        "title": "Developer Apprentice",
+        "subtitle": "SCR Informatiques - Châteaubriant",
+        "description": "Founded in 1990, SCR Informatiques is a software development and IT services company.",
+        "points": [
+          "Web application development (front & back).",
+          "Mobile application development (React Native).",
+          "Database migration project (HFSQL -> MySQL)."
+        ]
+      }
+    },
+    {
+      "fr": {
+        "date": "Juin 2019 – Juillet 2019",
+        "title": "Stage d'observation",
+        "subtitle": "Entrepôts des lots – Derval",
+        "description": "Entrepôts des lots est une entreprise de vente de produits divers.",
+        "points": [
+          "Observation de l'entreprise et de son fonctionnement.",
+          "Découverte des différents rôles et des compétences requises.",
+          "Renforcement des compétences en communication et en travail en équipe."
+        ]
+      },
+      "en": {
+        "date": "June 2019 – July 2019",
+        "title": "Observation internship",
+        "subtitle": "Entrepôts des lots – Derval",
+        "description": "Entrepôts des lots is a company selling various products.",
+        "points": [
+          "Observation of the company and how it operates.",
+          "Discovery of the different roles and required skills.",
+          "Strengthening communication and teamwork skills."
+        ]
+      }
+    }
+  ],
+  "education": [
+    {
+      "subtitleHref": "https://www.iutvannes.fr",
+      "fr": {
+        "date": "2023 – Aujourd'hui",
+        "title": "BUT Informatique",
+        "subtitle": "IUT de Vannes",
+        "description": "Le BUT informatique est un diplôme en 3 ans qui nous forme aux divers domaines de l'informatique. Il est professionnalisant en proposant une formation en alternance.",
+        "points": [
+          "Spécialité : développement web et logiciel, IA.",
+          "Enseignements : bases de données, réseaux, systèmes d'exploitation, programmation, gestion de projet, optimisation, mathématiques, etc.",
+          "Projets en équipe."
+        ]
+      },
+      "en": {
+        "date": "2023 – Present",
+        "title": "BUT Computer Science",
+        "subtitle": "IUT de Vannes",
+        "description": "The BUT is a 3-year degree that trains students in various areas of computer science. It includes work-study programs for professional experience.",
+        "points": [
+          "Specialization: web and software development, AI.",
+          "Courses: databases, networking, operating systems, programming, project management, optimization, mathematics, etc.",
+          "Team projects."
+        ]
+      }
+    },
+    {
+      "fr": {
+        "date": "2020 – 2023",
+        "title": "Baccalauréat Scientifique (STI2D)",
+        "subtitle": "Lycée Guy-Moquet Lenoir - Châteaubriant",
+        "mention": "Mention assez bien",
+        "description": "Le baccalauréat STI2D est un diplôme qui nous forme aux bases de l'ingénierie et du développement durable, il nous permet de comprendre les différents domaines de l'informatique.",
+        "points": [
+          "Spécialité : Sciences et Technologies de l'Industrie et du Développement Durable (STI2D).",
+          "Enseignements : mathématiques, physique-chimie, sciences de l'ingénieur, anglais, etc."
+        ]
+      },
+      "en": {
+        "date": "2020 – 2023",
+        "title": "High school diploma (STI2D)",
+        "subtitle": "Guy-Moquet Lenoir High School - Châteaubriant",
+        "mention": "With honors",
+        "description": "The STI2D diploma focuses on engineering fundamentals and sustainable development, and introduces various areas of technology and computer science.",
+        "points": [
+          "Specialization: Sciences and Technologies for Industry and Sustainable Development (STI2D).",
+          "Courses: mathematics, physics-chemistry, engineering sciences, English, etc."
+        ]
+      }
+    }
+  ]
+}

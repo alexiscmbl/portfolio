@@ -1,70 +1,74 @@
-"use client"
+'use client';
 
-import { useMemo, useState } from 'react'
-import Link from "next/link"
-import type { MenuProps } from 'antd';
-import { Menu } from 'antd'
-import { House, Phone, BookCheck, CircleUserRound } from "lucide-react";
-import { usePathname } from 'next/navigation';
+import '../../config/i18n';
+import { useTheme } from 'next-themes';
+import React, { useEffect, useRef, useState } from 'react';
 
-type MenuItem = Required<MenuProps>['items'][number];
+import { ScrollRefContext } from '@/context/ScrollContext';
+import { useIsMobile } from '@/hooks/useIsMobile';
+import { cn } from '@/lib/utils';
 
-const items: MenuItem[] = [
-    { 
-        icon: <House size={15} />,
-        key: "homepage",
-        label: <Link href={'/'}>Accueil</Link>
-        
-    },
-    {
-        icon: <CircleUserRound size={15}/>,
-        key: "profile",
-        label: <Link href={'/profile'}>Profil</Link>
-    },
-    { 
-        icon: <BookCheck size={15}/>,
-        key: "experience",
-        label: <Link href={'/experience'}>Expérience</Link>
-        
-    },
-    { 
-    icon: <Phone size={15}/>,
-        key: "contact",
-        label: <Link href={'/contact'}>Contact</Link> 
+import { Header } from '../../components/Header';
+import { Meteors } from '../../components/ui/meteors';
 
-    }
-];
+type LayoutProps = {
+  children: React.ReactNode;
+};
 
-export default function Layout({children}: {children: React.ReactNode}) {
-    const [collapsed, setCollapsed] = useState<boolean>(true);
-    const pathname = usePathname() ?? '/';
+export default function Layout({ children }: LayoutProps) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+  const isMobile = useIsMobile();
 
-    const pathKey = useMemo(() => {
-        if (pathname === '/' || pathname === '') return 'homepage';
-        if (pathname.startsWith('/profile')) return 'profile';
-        if (pathname.startsWith('/experience')) return 'experience';
-        if (pathname.startsWith('/contact')) return 'contact';
-        return 'homepage';
-    }, [pathname]);
-    
-    return (
-        <div className='border flex h-screen' >
-                <div className='flex place-content-center place-items-center place w-40 ml-5'>
-                    <Menu
-                        className='rounded-sm'
-                        mode="inline"
-                        defaultSelectedKeys={[pathKey]}
-                        theme="light"
-                        inlineCollapsed={collapsed}
-                        onMouseEnter={() => setCollapsed(false)}
-                        onMouseLeave={() => setCollapsed(true)}
-                        items={items}
-                        style={{ width: 200 }}
-                    />
-                </div>
-            <div className='border'>
-                {children}
-            </div>
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const meteorsVariant = resolvedTheme === 'dark' ? 'dark' : 'light';
+
+  return (
+    <ScrollRefContext.Provider value={scrollRef}>
+      <div
+        ref={scrollRef}
+        className="relative h-screen w-full flex flex-col overflow-y-auto scroll-smooth"
+      >
+        {/* Fond animé : moins de météores + décalé à gauche sur mobile, même angle */}
+        <div
+          className={cn(
+            'fixed inset-0 -z-20',
+            isMobile && 'w-[120%] -translate-x-[10%]',
+          )}
+        >
+          <Meteors
+            className="h-full w-full"
+            variant={meteorsVariant}
+            count={isMobile ? 28 : 75}
+            angle={255}
+          />
         </div>
-    )
+        {/* Overlay léger pour renforcer la lisibilité du contenu */}
+        <div
+          className="pointer-events-none fixed inset-0 -z-10 bg-linear-to-b from-background/30 via-background/15 to-background/40 transition-colors duration-300 ease-out"
+          aria-hidden
+        />
+
+        <div className="relative z-10 flex flex-col min-h-full w-full">
+          {/* Header fixed */}
+          <Header />
+
+          {/* Contenu principal avec padding pour le header */}
+          <main className="pt-24 flex-1 w-full">{children}</main>
+
+          {/* Footer collé en bas du contenu */}
+          <footer className="mt-auto p-4 text-center text-sm text-foreground">
+            © {new Date().getFullYear()} Alexis Cesmat-Belliard. Tous droits
+            réservés.
+          </footer>
+        </div>
+      </div>
+    </ScrollRefContext.Provider>
+  );
 }

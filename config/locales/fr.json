@@ -1,0 +1,73 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "contact": "Contact",
+    "experience": "Expérience",
+    "education": "Formation",
+    "profile": "Profil"
+  },
+  "scrollHint": "Découvrir",
+  "welcome": "Bienvenue sur le portfolio d'Alexis Cesmat-Belliard",
+  "description": "Je suis un développeur passionné spécialisé dans la création d'applications web modernes et réactives.",
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Quelques réalisations et projets personnels.",
+    "visit": "Voir le projet",
+    "notAvailable": "Projet non disponible",
+    "detail": "Voir le détail",
+    "backToProjects": "Retour aux projets",
+    "projectNotFound": "Projet introuvable",
+    "roleLabel": "Rôle",
+    "dateLabel": "Date",
+    "techStack": "Stack technique",
+    "descriptionTitle": "Description",
+    "keyPointsTitle": "Points clés",
+    "statusCompleted": "Terminé",
+    "statusInDevelopment": "En cours"
+  },
+  "education": {
+    "title": "Formation",
+    "subtitle": "Parcours scolaire et diplômes."
+  },
+  "timeline": {
+    "showDescription": "Voir la description",
+    "hide": "Masquer"
+  },
+  "experience": {
+    "title": "Expérience",
+    "subtitle": "Parcours professionnel et stages."
+  },
+  "profile": {
+    "title": "Profil",
+    "subtitle": "Qui je suis et ce que j'aime faire.",
+    "aboutTitle": "À propos",
+    "aboutText": "Je suis actuellement étudiant en BUT Informatique à l'IUT de Vannes et apprenti développeur chez SCR Informatiques, je me passionne pour le développement. J'aime construire des interfaces claires et des expériences utilisateur soignées.",
+    "skillsTitle": "Compétences",
+    "skillsFrontEndLabel": "Front-end",
+    "skillsFrontEnd": ["HTML", "CSS / Tailwind", "JavaScript", "TypeScript", "React", "Next.js"],
+    "skillsBackEndLabel": "Back-end / Langages & données",
+    "skillsBackEnd": ["Java", "Python", "NestJS", "Node.js", "PostgreSQL / MySQL", "MongoDB / Neo4J", "Machine Learning / Deep Learning (IA)"],
+    "skillsToolsLabel": "Outils",
+    "skillsTools": ["Docker", "Git", "Excel", "Langage UML", "Bash"],
+    "goalsTitle": "Objectifs",
+    "goalsText": "Obtenir mon diplôme, continuer à monter en compétences techniques et professionnelles. J'aimerais poursuivre des études en école d'ingénieur ou en master afin de confirmer mes compétences et de me spécialiser dans un domaine précis."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Une idée de projet ou une question ? Écrivez-moi.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "cv": "Mon CV",
+    "location": "Derval, France",
+    "cta": "Si vous avez une question, n'hésitez pas à me contacter.",
+    "formTitle": "Envoyer un message",
+    "formName": "Nom",
+    "formEmail": "Votre email",
+    "formMessage": "Message",
+    "formSend": "Envoyer",
+    "formSuccess": "Message envoyé, merci.",
+    "formError": "Erreur lors de l'envoi, réessayez."
+  }
+}
